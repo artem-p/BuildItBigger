@@ -12,3 +12,5 @@ Contains:
 <img src="https://raw.githubusercontent.com/artem-p/BuildItBigger/master/img/builditbigger.png"/>
 
 Udacity Gradle for Android course project.
+
+Jokes in java library taken from [http://www.short-funny.com](http://www.short-funny.com/)
