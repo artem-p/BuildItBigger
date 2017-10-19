@@ -11,4 +11,4 @@ Contains:
 
 <img src="https://raw.githubusercontent.com/artem-p/BuildItBigger/master/img/builditbigger.png"/>
 
-Udacity's Gradle for Android course project.
+Udacity Gradle for Android course project.
