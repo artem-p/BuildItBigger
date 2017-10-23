@@ -12,6 +12,8 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
+import ru.artempugachev.jokes.JokeGenerator;
+
 /**
  * An endpoint class for jokes
  */
@@ -32,7 +34,11 @@ public class JokesEndpoint {
     @ApiMethod(name = "getJoke")
     public JokeResponse getJoke() {
         JokeResponse response = new JokeResponse();
-        response.setJoke("A joke");
+
+        JokeGenerator jokeGenerator = new JokeGenerator();
+        String joke = jokeGenerator.getJoke();
+
+        response.setJoke(joke);
 
         return response;
     }
