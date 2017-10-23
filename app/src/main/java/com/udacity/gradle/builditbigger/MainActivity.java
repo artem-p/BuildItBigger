@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
     }
 
 
@@ -48,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        JokeGenerator jokeGenerator = new JokeGenerator();
-        String joke = jokeGenerator.getJoke();
+        new EndpointsAsyncTask().execute(this);
 
-        Intent jokeActivityIntent = new Intent(MainActivity.this, JokesActivity.class);
-        jokeActivityIntent.putExtra(JokesActivity.JOKE_EXTRA, joke);
 
-        startActivity(jokeActivityIntent);
+//        Intent jokeActivityIntent = new Intent(MainActivity.this, JokesActivity.class);
+//        jokeActivityIntent.putExtra(JokesActivity.JOKE_EXTRA, joke);
+//
+//        startActivity(jokeActivityIntent);
     }
 }
