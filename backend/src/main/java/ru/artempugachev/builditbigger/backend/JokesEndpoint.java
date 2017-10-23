@@ -27,12 +27,12 @@ import javax.inject.Named;
 public class JokesEndpoint {
 
     /**
-     * A simple endpoint method that takes a name and says Hi back
+     * A simple endpoint method that responds with a joke
      */
     @ApiMethod(name = "getJoke")
-    public JokeResponse getJoke(@Named("name") String name) {
+    public JokeResponse getJoke() {
         JokeResponse response = new JokeResponse();
-        response.setJoke("Hi, " + name);
+        response.setJoke("A joke");
 
         return response;
     }
