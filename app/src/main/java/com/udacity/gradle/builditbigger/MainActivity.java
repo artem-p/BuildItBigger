@@ -8,10 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import ru.artempugachev.jokes.JokeGenerator;
-import ru.artempugachev.jokesactivity.JokesActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -48,11 +44,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
         new EndpointsAsyncTask().execute(this);
-
-
-//        Intent jokeActivityIntent = new Intent(MainActivity.this, JokesActivity.class);
-//        jokeActivityIntent.putExtra(JokesActivity.JOKE_EXTRA, joke);
-//
-//        startActivity(jokeActivityIntent);
     }
 }
