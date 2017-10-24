@@ -20,7 +20,12 @@ import ru.artempugachev.jokesactivity.JokesActivity;
  * Task to fetch GCE Endpoints
  */
 
-class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
+    public interface JokesTaskResponse {
+        void onFinish(String jokeResult);
+    }
+
+    private JokesTaskResponse jokesTaskResponse;
     private static JokesApi myApiService = null;
     private Context context;
 
@@ -56,9 +61,19 @@ class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected void onPostExecute(String joke) {
+        // for testing asynctask result
+        if (jokesTaskResponse != null) {
+            jokesTaskResponse.onFinish(joke);
+        }
+        //
+
         Intent jokeActivityIntent = new Intent(context, JokesActivity.class);
         jokeActivityIntent.putExtra(JokesActivity.JOKE_EXTRA, joke);
 
         context.startActivity(jokeActivityIntent);
+    }
+
+    public void setJokesTaskResponse(JokesTaskResponse jokesTaskResponse) {
+        this.jokesTaskResponse = jokesTaskResponse;
     }
 }
